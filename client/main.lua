@@ -96,25 +96,16 @@ local function storgeSpawnTarget()
                             end
                         end
                         DoRamAnimation(true)
-                        exports['progressbar']:Progress({
-                            name = "lockpick",
-                            duration = 10000,
-                            label = "جاري كسر القُفل",
-                            useWhileDead = false,
-                            canCancel = true,
-                            controlDisables = {
-                                disableMovement = true,
-                                disableCarMovement = true,
-                                disableMouse = false,
-                                disableCombat = true,
-                            }
-                        }, function(cancelled)
-                            if not cancelled then
-                                DoRamAnimation(false)
-                                TriggerServerEvent("ph-storge:server:openStorgeByPolice", name)
-                            else
-                                DoRamAnimation(false)
-                            end
+                        QBCore.Functions.Progressbar("lockpick", "جاري كسر القُفل", 10000, false, true, {
+                            disableMovement = true,
+                            disableCarMovement = true,
+                            disableMouse = false,
+                            disableCombat = true,
+                        }, {}, {}, {}, function() -- Done
+                            DoRamAnimation(false)
+                            TriggerServerEvent("ph-storge:server:openStorgeByPolice", name)
+                        end, function() -- Cancel
+                            DoRamAnimation(false)
                         end)
                     end,
                     canInteract = function()
@@ -127,7 +118,7 @@ local function storgeSpawnTarget()
                     label = "حجز المستودع",
                     icon = "fas fa-house-lock",
                     action = function()
-                        local input = exports['sa-input']:ShowInput({
+                        local input = exports['qb-input']:ShowInput({
                             header = "حجز المستودع",
                             submitText = "حجز",
                             inputs = {
@@ -303,7 +294,7 @@ end)
 
 RegisterNetEvent("ph-storge:client:createStorgeNow", function(data)
     if checkIsPedInAnyVehicle then return QBCore.Functions.Notify("يجب النزول من السيارة اولا", "error") end
-    local input = exports['sa-input']:ShowInput({
+    local input = exports['qb-input']:ShowInput({
         header = "شراء مستودع",
         submitText = "شراء",
         inputs = {
@@ -331,7 +322,7 @@ RegisterNetEvent("ph-storge:client:BuyStorge", function(data)
     if checkIsPedInAnyVehicle then return QBCore.Functions.Notify("يجب النزول من السيارة اولا", "error") end
     QBCore.Functions.TriggerCallback("ph-storge:server:BuyStorge", function(status)
         if status then
-            local input = exports['sa-input']:ShowInput({
+            local input = exports['qb-input']:ShowInput({
                 header = "شراء مستودع",
                 submitText = "شراء",
                 inputs = {
@@ -376,7 +367,7 @@ end)
 
 RegisterNetEvent("ph-storge:client:openStorge", function(storgeId, storgeName, password)
     if checkIsPedInAnyVehicle then return QBCore.Functions.Notify("يجب النزول من السيارة اولا", "error") end
-    local input = exports['sa-input']:ShowInput({
+    local input = exports['qb-input']:ShowInput({
         header = "إدارة المستودع",
         submitText = "فتح",
         inputs = {
@@ -513,7 +504,7 @@ end)
 
 RegisterNetEvent("ph-storge:client:changePasswordStorge", function(data)
     if checkIsPedInAnyVehicle then return QBCore.Functions.Notify("يجب النزول من السيارة اولا", "error") end
-    local input = exports['sa-input']:ShowInput({
+    local input = exports['qb-input']:ShowInput({
         header = "تغير كلمة المرور",
         submitText = "تغير",
         inputs = {
@@ -539,7 +530,7 @@ end)
 
 RegisterNetEvent("ph-storge:client:transferOwnershipStorge", function(data)
     if checkIsPedInAnyVehicle then return QBCore.Functions.Notify("يجب النزول من السيارة اولا", "error") end
-    local input = exports['sa-input']:ShowInput({
+    local input = exports['qb-input']:ShowInput({
         header = "نقل الملكية",
         submitText = "نقل",
         inputs = {
@@ -584,7 +575,7 @@ RegisterNetEvent("ph-storge:client:controlStorgeAdmin", function()
     if QBCore.Functions.GetPlayerData().job.name ~= "police" then
         return QBCore.Functions.Notify("هذا الامر مخصص لمسؤول المستودعات", "error")
     end
-    local input = exports['sa-input']:ShowInput({
+    local input = exports['qb-input']:ShowInput({
         header = "إدارة المستودع",
         submitText = "فتح",
         inputs = {
