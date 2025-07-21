@@ -4,7 +4,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
 
 ---
 
-## Features
+## ✨ Features
 - **Buyable Storage Units:** Players can purchase storage units at configured locations.
 - **Customizable Storage:** Each storage has configurable price, size, slots, and location.
 - **Password Protection:** Storages are protected by a player-set password.
@@ -19,7 +19,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
 
 ---
 
-## Dependencies
+## 📌 Dependencies
   - `qb-core`
   - `qb-target`
   - `qb-menu`
@@ -28,7 +28,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
 
 ---
 
-## Installation
+## 📩 Installation
 1. Download or clone this repository into your server's `resources` folder.
 2. Add the following line to your `server.cfg` (after all dependencies):
    ```
@@ -39,5 +39,5 @@ is an advanced and fully-featured storage management script for FiveM servers us
 
 ---
 
-## Support & Contact
+## 📞 Support & Contact
 [PH Scripts Community](https://discord.gg/MyXQHPX9U8)
