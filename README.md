@@ -1,8 +1,8 @@
 # ph-storge
----
+
 is an advanced and fully-featured storage management script for FiveM servers using the QBCore framework. It allows players to purchase, manage, and secure personal storage units (stashes) with advanced features such as police control, ownership transfer, lock repair, and more. The script is highly configurable and integrates seamlessly with QBCore and its ecosystem.
 
----
+
 
 ## ✨ Features
 - **Buyable Storage Units:** Players can purchase storage units at configured locations.
@@ -17,7 +17,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
 - **Highly Configurable:** All locations, prices, jobs, and more are set in `config.lua`.
 - **No database required:** Storage data is saved in `storges.json`.
 
----
+
 
 ## 📌 Dependencies
   - `qb-core`
@@ -26,7 +26,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
   - `qb-inventory`
   - `qb-input`
 
----
+
 
 ## 📩 Installation
 1. Download or clone this repository into your server's `resources` folder.
@@ -37,7 +37,7 @@ is an advanced and fully-featured storage management script for FiveM servers us
 3. Edit `config.lua` to customize storage locations, prices, jobs, and other settings as needed.
 4. Restart your server or use `refresh` and `ensure ph-storge` in the server console.
 
----
+
 
 ## 📞 Support & Contact
 [PH Scripts Community](https://discord.gg/MyXQHPX9U8)
